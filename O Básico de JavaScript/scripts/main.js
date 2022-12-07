@@ -9,7 +9,8 @@ function trocarImagens() {
     } else {
         myImage.setAttribute("src", "img/firefox.webp");
     }
-};
+}
+
 function trocarTexto() {
     const mySrc = myImage.getAttribute("src");
     if(mySrc == "img/firefox.webp"){
@@ -20,15 +21,12 @@ function trocarTexto() {
 }
 
 function setUserName() {
-    const myName = prompt("Por favor, digite o seu nome");
+    const myName = prompt("Your name please!");
+    if (!myName) {
+        setUserName();
+    } else{
     localStorage.setItem("name", myName);
     myHeading.textContent = `Mozilla is cool, ${myName}`;
-
-    if (!localStorage.getItem("name")) {
-        setUserName();
-    } else {
-        const storedName = localStorage.getItem("name");
-        myHeading.textContent = `Mozilla é legal, ${storedName}`;
     }
 }
 
