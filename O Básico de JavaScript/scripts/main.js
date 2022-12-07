@@ -1,14 +1,34 @@
+const myImage = document.querySelector("img");
 const myHeading = document.querySelector("h1");
-myHeading.textContent = "Olá mundo!";
+const myButton = document.querySelector("button");
 
 
-let myVariable = "Bob";
 
-function multiply(num1, num2) {
-    let result = num1 * num2;
-    return result;
+myImage.onclick = () => {
+    
+    const mySrc = myImage.getAttribute("src");
+    if (mySrc === "img/firefox.webp") {
+        myImage.setAttribute("src", "img/chrome.png");
+        myHeading.textContent = "Mas eu prefiro o Chrome";
+    } else {
+        myImage.setAttribute("src", "img/firefox.webp");
+        myHeading.textContent = "Mozilla is cool";
+    }
+};
+
+function setUserName() {
+    const myName = prompt("Por favor, digite o seu nome");
+    localStorage.setItem("name", myName);
+    myHeading.textContent = `Mozilla is cool, ${myName}`;
+
+    if (!localStorage.getItem("name")) {
+        setUserName();
+    } else {
+        const storedName = localStorage.getItem("name");
+        myHeading.textContent = `Mozilla é legal, ${storedName}`;
+    }
 }
 
-multiply(4, 7);
-multiply(20, 20);
-multiply(0.5,3);
+myButton.onclick = () => {
+    setUserName();
+};

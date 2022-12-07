@@ -28,9 +28,38 @@ p, li {
     line-height: 2;
     letter-spacing: 1px;
 }
+#manifest {
+    text-decoration: none;
+    color: #00539F;
+    font-weight: bolder;
+}
+
+#manifest:hover {
+    color: #000;
+    transition: 2s, 1s;
+}
 
 img {
     display: block;
     margin: 0 auto;
     width: 250px;
+    background-color: #FF9500;
+}
+
+button {
+    font-family: 'Nerko One', cursive;
+    background-color: #00539F;
+    width: 50%;
+    padding: 20px;
+    font-size: 2.5rem;
+    border: none;
+    color: white;
+    box-shadow: 2px 2px 2px #000;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #000;
+    transition: 0.2s, 0.5s;
+    color: #00539F;
 }
