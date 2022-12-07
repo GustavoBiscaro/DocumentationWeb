@@ -2,19 +2,22 @@ const myImage = document.querySelector("img");
 const myHeading = document.querySelector("h1");
 const myButton = document.querySelector("button");
 
-
-
-myImage.onclick = () => {
-    
+function trocarImagens() {
     const mySrc = myImage.getAttribute("src");
     if (mySrc === "img/firefox.webp") {
         myImage.setAttribute("src", "img/chrome.png");
-        myHeading.textContent = "Mas eu prefiro o Chrome";
     } else {
         myImage.setAttribute("src", "img/firefox.webp");
-        myHeading.textContent = "Mozilla is cool";
     }
 };
+function trocarTexto() {
+    const mySrc = myImage.getAttribute("src");
+    if(mySrc == "img/firefox.webp"){
+        myHeading.textContent = "Mozilla is cool";
+    } else {
+        myHeading.textContent = "Mas eu prefiro o Chrome!";
+    }
+}
 
 function setUserName() {
     const myName = prompt("Por favor, digite o seu nome");
@@ -30,5 +33,10 @@ function setUserName() {
 }
 
 myButton.onclick = () => {
-    setUserName();
+    setUserName(); 
+};
+
+myImage.onclick = () => {
+    trocarImagens();
+    trocarTexto();
 };
