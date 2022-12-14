@@ -1,0 +1,39 @@
+O head (en-US) de um documento HTML é a parte que não é exibida no navegador da Web quando a página é carregada. Ele contém informações como title , links para <css> (se você deseja modelar seu conteúdo HTML com CSS), links para favicons personalizados e outros metadados (dados sobre o HTML, como quem o escreveu, e palavras-chave importantes que descrevem o documento.) Neste artigo, abordaremos todas as coisas acima e mais. Dando-lhe uma boa base para lidar com marcação.
+
+O que há no cabeçalho HTML?
+Vamos rever o simples Documento HTML que abordamos no artigo anterior:
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Minha página de teste</title>
+  </head>
+  <body>
+    <p>Essa é minha página</p>
+  </body>
+</html>
+
+O cabeçalho HTML é o conteúdo do elemento <head> - ao contrário do elemento <body> (que são exibidos na página quando carregamos o navegador), ocnteúdo do cabeçalho não é exibido na página, em vez disso, o trabalho do cabeçalho é conter metados sobre o documento. No exemplo seguinte, o cabeçalho é bem simples:
+
+<head>
+  <meta charset="utf-8">
+  <title>Minha página de teste</title>
+</head>
+
+Exemplos principais:
+<meta name="author" content="Chris Mills">
+<meta name="description" content="A Área de Aprendizagem do MDN tem como objetivo
+proporcionar iniciantes em Web com tudo o que eles precisam saber
+para começar a desenvolver sites e aplicativos.">
+
+Outros tipos de metadados
+Ao navegar pela web, você também encontrará outros tipos de metadados. Muitos dos recursos que você verá em sites são criações proprietárias, projetados para fornecer a determinados sites (como sites de redes sociais) informações específicas que eles podem usar.
+
+Por exemplo, Open Graph Data é um protocolo de metadados que o Facebook inventou para fornecer metadados mais ricos para sites. No código-fonte MDN, você encontrará isso:
+
+<meta property="og:image" content="https://developer.mozilla.org/static/img/opengraph-logo.png">
+<meta property="og:description" content="A Mozilla Developer Network (MDN) fornece
+informações sobre tecnologias Open Web, incluindo HTML, CSS e APIs para ambos os sites da Web
+e aplicativos HTML5. Ele também documenta produtos Mozilla, como o sistema operacional Firefox.">
+<meta property="og:title" content="Mozilla Developer Network">
