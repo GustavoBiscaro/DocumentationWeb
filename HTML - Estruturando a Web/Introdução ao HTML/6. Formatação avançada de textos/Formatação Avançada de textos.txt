@@ -1,0 +1,100 @@
+Existem muitos outros elementos em HTML para formatação de texto, que não tratamos no artigo de Fundamentos do texto em HTML. Os elementos descritos neste artigo são menos conhecidos, mas ainda são úteis para conhecer (e isso ainda não é uma lista completa de todos os elementos). Aqui, você aprenderá a marcar citações, listas de descrição, código de computador e outros textos relacionados, subscrito e sobrescrito, informações de contato e muito mais.
+
+Listas de descrição
+Nos Fundamentos do texto em HTML, falamos sobre como marcar as listas básicas em HTML, mas não mencionamos o terceiro tipo de lista que ocasionalmente irá encontrar - listas de descrição. O objetivo dessas listas é marcar um conjunto de itens e suas descrições associadas, como termos e definições, ou perguntas e respostas. 
+
+As listas de descrição usam um invólucro diferente dos outros tipos de lista — <dl>; além disso, cada termo está envolvido em um <dt> (termo de descrição) elemento, e cada descrição está envolvida em um <dd> (definição de descrição) elemento.
+
+    Lista de descrição 
+    DL - Definition List
+    DT - Defines a term
+    DD - Describe a term
+
+    Estrutura
+    <DL>
+    <DT> TERM </DT>
+    <DD> DESCRIPTION </DD>
+    </DL>
+
+Citações
+HTML também possui recursos disponíveis para marcação de citações. Qual elemento você pode usar? Depende se está marcando um bloco ou uma citação em linha.
+
+Blockquotes
+Se uma seção de conteúdo em nível de bloco (seja um parágrafo, vários parágrafos, uma lista, etc.) for citada em algum outro lugar, você deverá envolvê-la em um elemento <blockquote> para indicar isso e incluir um URL apontando para a fonte da citação dentro de um atributo cite. 
+
+Citações em linha
+As citações embutidas funcionam exatamente da mesma maneira, exceto pelo uso do elemento <q>. Por exemplo, o bit de marcação abaixo contém uma citação da página MDN <q>:
+
+<p>The quote element — <code>&lt;q&gt;</code> — is <q cite="/en-US/docs/Web/HTML/Element/q">intended
+for short quotations that don't require paragraph breaks.</q></p>
+Copy to Clipboard
+O estilo padrão do navegador renderiza isso como texto normal entre aspas para indicar uma citação, assim:
+
+O elemento de citação — <q> — é "destinado a citações curtas que não exigem quebras de parágrafo".
+
+Citações
+O conteúdo do atributo cite parece útil, mas, infelizmente, navegadores, leitores de tela etc. não fazem muito uso dele. Não há como fazer com que o navegador exiba o conteúdo de cite, sem escrever sua própria solução usando JavaScript ou CSS. Se você deseja disponibilizar a fonte da citação na página, uma maneira melhor de marcá-la é colocar o elemento <cite> próximo ao elemento quote. Isso realmente tem o objetivo de conter o nome da fonte da citação — ou seja, o nome do livro ou o nome da pessoa que disse a citação — mas não há razão para que você não possa vincular o texto dentro de <cite> à citação fonte de alguma forma:
+
+<p>According to the <a href="/en-US/docs/Web/HTML/Element/blockquote">
+<cite>MDN blockquote page</cite></a>:
+</p>
+
+<blockquote cite="/en-US/docs/Web/HTML/Element/blockquote">
+  <p>The <strong>HTML <code>&lt;blockquote&gt;</code> Element</strong> (or <em>HTML Block
+  Quotation Element</em>) indicates that the enclosed text is an extended quotation.</p>
+</blockquote>
+
+<p>The quote element — <code>&lt;q&gt;</code> — is <q cite="/en-US/docs/Web/HTML/Element/q">intended
+for short quotations that don't require paragraph breaks.</q> -- <a href="/en-US/docs/Web/HTML/Element/q">
+<cite>MDN q page</cite></a>.</p>
+Copy to Clipboard
+As citações são estilizadas em fonte itálica por padrão. Você pode ver esse código funcionando em nosso exemplo quotations.html.
+
+Para diferenciar:
+<q>...</q> você faz um citação inline, ou seja, no meio de um texto. Minha experiência é que serve mais para um destaque, ainda que deveria ser só usado como uma citação real de alguma coisa dita anteriormente. É como usamos o `` aqui no site através do markdown (mas ele tem a semântica de citação de código que aqui é diferente da citação básica).
+
+<blockquote>...</blockquote> é o mesmo, porém ele cria parágrafo (em certa medida funciona como um <div> com função mais específica), por isso ele não é exatamente igual ao <q>. Ele deve ser usado para um destaque isolado da citação e possivelmente, mas não necessariamente, decorado com CSS de forma diferente. É como usamos aqui o > no markdown (existe a citação de código também, que é um pouco diferente, mas no fundo cai no mesmo internamente, no HTML).
+
+<cite>...</cite> é para definir uma referência e não para colocar a citação, o texto em si, embora possa usar também. Principalmente para indicar quem disse, é mais para colocar um URL com o texto do autor ou material citado, ou seja, indica a fonte. Pode facilitar a formatação e buscas de ferramentas diversas. Pode ser usado dentro do <blockquote>.
+
+Abreviações
+Outro elemento bastante comum que você encontrará ao olhar na Web é o <abbr> — usado para contornar uma abreviação ou sigla e fornecer uma expansão completa do termo (incluído em um atributo title.)
+
+Nota: Há outro elemento, <acronym>, que basicamente faz a mesma coisa que <abbr>, e foi projetado especificamente para acrônimos, em vez de abreviações. Isso, no entanto, caiu em desuso — não era suportado em navegadores nem o <abbr>, e tem uma função semelhante que foi considerado inútil ter os dois. Apenas use <abbr>
+
+Marcando detalhes de contato
+O HTML possui um elemento para marcar os detalhes do contato — <address>. Isso simplesmente envolve seus detalhes de contato.
+
+Porém, uma coisa a se lembrar é que o elemento <address> destina-se a marcar os detalhes de contato da pessoa que escreveu o documento HTML e não qualquer endereço. Portanto, o exposto acima só seria bom se Chris tivesse escrito o documento em que a marcação aparece. 
+
+Sobrescrito (Sup) e subscrito (Sub)
+Ocasionalmente, você precisará usar sobrescrito e subscrito ao marcar itens como datas, fórmulas químicas e equações matemáticas para que eles tenham o significado correto. Os elementos <sup> (en-US) e <sub> (en-US) manipulam esse trabalho.
+
+Representando código de computador
+Existem vários elementos disponíveis para marcar código de computador usando HTML:
+
+<code>: Para marcar partes genéricas de código de computador (fonte e tamanho)
+<pre>: Para reter espaço em branco (geralmente blocos de código) — se você usar recuo ou espaço em branco em excesso no seu texto, os navegadores o ignorarão e você não o verá na sua página renderizada. Se você envolver o texto nas tags <pre></pre> seu espaço em branco será renderizado de forma idêntica à maneira como você o vê no seu editor de texto.
+<var>: Para marcar especificamente nomes de variáveis.
+<kbd> (en-US): Para marcar a entrada do teclado (e outros tipos) inserida no computador.
+<samp> (en-US): Para marcar a saída de um programa de computador.
+
+Marcando horários e datas
+O HTML também fornece o elemento <time> para marcar horários e datas em um formato legível por máquina. Por exemplo:
+
+<time datetime="2016-01-20">20 January 2016</time>
+Copy to Clipboard
+Por que isso é útil? Bem, existem muitas maneiras diferentes pelas quais os humanos escrevem datas. A data acima pode ser escrita como:
+
+20 January 2016
+20th January 2016
+Jan 20 2016
+20/01/16
+01/20/16
+The 20th of next month
+20e Janvier 2016
+2016 年 1 月 20 日
+And so on
+
+Resumo
+Isso marca o fim de nosso estudo da semântica de texto HTML. Lembre-se de que o que você viu durante este curso não é uma lista exaustiva de elementos de texto HTML — queríamos tentar cobrir o essencial, e alguns dos mais comuns que você verá na natureza, ou pelo menos podem achar interessantes. Para encontrar muito mais elementos HTML, você pode dar uma olhada no nosso HTML element reference (a seção Inline text semantics seria um ótimo ponto de partida.) No próximo artigo, examinaremos os elementos HTML que você usaria para estruturar as diferentes partes de um documento HTML.
