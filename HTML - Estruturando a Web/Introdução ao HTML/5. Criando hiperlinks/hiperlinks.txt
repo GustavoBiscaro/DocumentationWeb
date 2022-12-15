@@ -60,6 +60,9 @@ URL relativa: aponta para um local relativo ao arquivo do qual você está vincu
 
 Um URL relativo apontará para lugares diferentes, dependendo da localização real do arquivo ao qual você se refere — por exemplo, se tivermos movido nosso arquivo index.html para fora do diretório de projetos e para a raiz do site (no nível superior, não em qualquer diretório), o link relativo à URL referente a pdfs/project-brief.pdf agora apontaria para um arquivo localizado em http://www.example.com/pdfs/project-brief.pdf, não para um arquivo localizado em http://www.example.com/projects/pdfs/project-brief.pdf.
 
+RELATIVO: Relativo ao local do arquivo HTML.
+ABSOLUTO: Referente a raiz do site.
+
 Práticas recomendadas
 Existem algumas práticas recomendadas a seguir, ao escrever links. Vejamos.
 
@@ -171,3 +174,4 @@ mailto:nowhere@mozilla.org
 mailto:nowhere@mozilla.org,nobody@mozilla.org
 mailto:nowhere@mozilla.org?cc=nobody@mozilla.org
 mailto:nowhere@mozilla.org?cc=nobody@mozilla.org&subject=This%20is%20the%20subject
+
