@@ -1,0 +1,88 @@
+Seções básicas de um documento
+As páginas da web podem e serão muito diferentes umas das outras, mas todas tendem a compartilhar componentes padrão semelhantes, a menos que a página exiba um vídeo ou um jogo em tela cheia, seja parte de algum tipo de projeto de arte ou seja mal estruturada:
+
+cabeçalho (header)
+Normalmente, uma grande faixa na parte superior com um grande título e / ou logotipo. É aí que as principais informações comuns sobre um site geralmente ficam de uma página para outra.
+
+barra de navegação
+Links para as principais seções do site; geralmente representado por botões de menu, links ou guias. Como o cabeçalho, esse conteúdo geralmente permanece consistente de uma página para outra - ter uma navegação inconsistente em seu site levará a usuários confusos e frustrados. Muitos web designers consideram a barra de navegação parte do cabeçalho em vez de um componente individual, mas isso não é um requisito; na verdade, alguns também argumentam que ter os dois separados é melhor para acessibilidade, já que os leitores de tela podem ler melhor os dois recursos se estiverem separados.
+
+conteúdo principal
+Uma grande área no centro que contém a maior parte do conteúdo exclusivo de uma determinada página da Web, por exemplo, o vídeo que você deseja assistir ou a história principal que você está lendo ou o mapa que deseja visualizar ou as manchetes de notícias, etc. Esta é a única parte do site que definitivamente irá variar de página para página!
+
+barra lateral (sidebar)
+Algumas informações periféricas, links, cotações, anúncios etc. Geralmente, isso é contextual ao conteúdo principal (por exemplo, em uma página de um artigo de notícias, a barra lateral pode conter a biografia do autor ou links para artigos relacionados), mas há também casos em que você encontrará alguns elementos recorrentes como um sistema de navegação secundário.
+
+rodapé (footer)
+Uma faixa na parte inferior da página que geralmente contém letras pequenas, avisos de direitos autorais ou informações de contato. É um lugar para colocar informações comuns (como o cabeçalho), mas geralmente essas informações não são críticas ou secundárias ao próprio site. O rodapé também é usado às vezes para fins de SEO, fornecendo links para acesso rápido a conteúdo popular. Um "site típico" poderia ser colocado assim:
+
+Para implementar essa marcação semântica, o HTML fornece tags dedicadas que você pode usar para representar essas seções, por exemplo:
+
+cabeçalho: <header>.
+barra de navegação: <nav>.
+conteúdo principal: <main>, com várias subseções de conteúdo representadas por <article>, <section>, e elementos <div>.
+rodapé: <footer>.
+
+Elementos de layout do HTML em mais detalhes
+É bom entender o significado geral de todos os elementos de seção do HTML em detalhes - isso é algo em que você trabalhará gradualmente ao começar a obter mais experiência com o desenvolvimento web. Você pode encontrar muitos detalhes lendo o nosso Elementos HTML. Para agora, estes são as principais definições que você deve tentar entender:
+
+<main> é para o conteúdo único dessa página.Use <main> apenas uma vez por página, e o coloca diretamente dentro do <body>. Não é ideal aninhar ele dentro de qualquer outro elemento senão o elemento <body>.
+<article> inclui um bloco de conteúdo relacionado o qual faz sentido por si só, sem o restante da página (por exemplo, uma postagem singular dum blog).
+<section> é similar com <article>, mas ele é mais para agrupar uma única parte de página que constitui em um único pedaço de funcionalidade (por exemplo, um minimapa, ou um conjunto de manchetes e resumo). É considerado boa prática começar cada seção com um título; observe também que você pode dividir um <article>s em diferentes <section>s, ou <section>s em diferentes <article>s, dependendo do contexto.
+<aside> é para conteúdo que não está relacionados diretamente com os conteúdos principais, mas que podem providenciar informações complementares a esses (entradas de glossários, biografia do autor, links relacionados, etc.).
+<header> representa um grupo de conteúdo introdutório. Se ele for um elemento filho do <body>, Ele é um header global da página do site, mas se for um elemento filho de um <article> ou <section>, é definido como um header específico para essa seção ( tenta não confundir isso com títulos e cabeçalhos).
+<nav> contém a funcionalidade principal de navegação da página. Links secundários, etc., não iria na navegação
+<footer> representa um grupo de conteúdo final da página.
+
+Elementos de layout não-semânticos
+Às vezes, você se depara numa situação em que não consegue encontrar um elemento semântico ideal para agrupar alguns itens ou agrupar algum conteúdo. Nesses momentos, convém agrupar um conjunto de elementos para afetá-los todos como uma única entidade com alguns CSS ou JavaScript. Para casos como esses, HTML oferece os elementos <div> e <span>. Você deve usá-los preferencialmente com um atributo class adequado, para fornecer a eles algum tipo de rótulo para que possam ser facilmente referenciados.
+
+<span> é um elemento não-semântico embutido, que você deve usar apenas se não conseguir pensar em um elemento de texto semântico melhor para agrupar seu conteúdo ou se não quiser adicionar um significado específico. Por exemplo:
+
+<p>O rei voltou bêbado para o quarto às 01:00, a cerveja não fez nada para ajudá-lo
+enquanto ele cambaleando pela porta <span class="editor-note">[Nota do editor: Neste ponto da peça, as luzes devem estar baixas]</span>.</p>
+Copy to Clipboard
+Nesse caso, a nota do editor deve meramente fornecer orientação extra para o diretor da peça; não é suposto ter um significado semântico extra. Para usuários observador, talvez o CSS fosse usado para distanciar a nota um pouco do texto principal.
+
+<div> é um elemento não semântico no nível de bloco, que você deve usar apenas se não conseguir pensar em um elemento de bloco semântico melhor para usar ou se não quiser adicionar um significado específico. Por exemplo, imagine um widget de carrinho de compras que você poderia escolher a qualquer momento durante o seu tempo em um site de comércio eletrônico:
+
+<div class="carrinho-de-compras">
+  <h2>Carrinho de compras</h2>
+  <ul>
+    <li>
+      <p><a href=""><strong>Brincos de prata</strong></a>: $99.95.</p>
+      <img src="../products/3333-0985/thumb.png" alt="Brincos de prata">
+    </li>
+    <li>
+      ...
+    </li>
+  </ul>
+  <p>Preço total: $237.89</p>
+</div>
+
+Quebras de linha e regras horizontais
+Dois elementos que você ocasionalmente vai usar e desejerá conhecer são <br> e <hr>:
+
+<br> cria uma quebra de linha em um parágrafo; é a única maneira de forçar uma estrutura rígida em uma situação em que você deseja uma série de linhas curtas fixas, como em um endereço postal ou um poema. Por exemplo:
+
+<p>Era uma vez um homem chamado O'Dell<br>
+Que adorava escrever HTML<br>
+Mas sua estrutura era ruim, sua semântica era triste<br>
+e sua marcação não leu muito bem.</p>
+Copy to Clipboard
+Sem os elementos <br>, o parágrafo seria apenas renderizado em uma longa linha (como dissemos anteriormente no curso, o HTML ignora a maioria dos espaços em branco); com elementos <br> no código, a marcação é renderizada assim
+
+Era uma vez um homem chamado O'Dell Que adorava escrever HTML Mas sua estrutura era ruim, sua semântica era triste e sua marcação não leu muito bem.
+
+Elementos <hr> criam uma regra horizontal no documento que indica uma alteração temática no texto (como uma alteração no tópico ou na cena). Visualmente, apenas se parece com uma linha horizontal. Como um exemplo:
+
+<p>Ron foi apoiado em um canto pelas feras inferiores saqueadores. Assustado, mas determinado a proteger seus amigos, ele levantou a varinha e se preparou para a batalha, esperando que seu pedido de socorro tivesse passado.</p>
+<hr>
+<p>Enquanto isso, Harry estava sentado em casa, olhando para sua declaração de realeza e ponderando quando a próxima série sairia, quando uma carta de socorro encantada voou pela janela e aterrissou em seu colo. Ele leu-o nebuloso e suspirou; "é melhor voltar ao trabalho então", ele pensou.</p>
+
+Seria renderizado assim:
+
+Ron foi apoiado em um canto pelas feras inferiores saqueadores. Assustado, mas determinado a proteger seus amigos, ele levantou a varinha e se preparou para a batalha, esperando que seu pedido de socorro tivesse passado.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Enquanto isso, Harry estava sentado em casa, olhando para sua declaração de realeza e ponderando quando a próxima série sairia, quando uma carta de socorro encantada voou pela janela e aterrissou em seu colo. Ele leu-o nebuloso e suspirou; "é melhor voltar ao trabalho então", ele pensou.
+
